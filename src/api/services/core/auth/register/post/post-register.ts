@@ -4,24 +4,24 @@ import t from '@/json/fa.json';
 import { coreApi } from "@/api/instance/core-api"; 
 import type { ApiResponse } from "@/api/types/api.types";
 import { requestHandler } from "@/api/utils/request-handler";
-import { deleteTestSchema as schema } from "./delete-test.schema";
+import { postRegisterSchema as schema } from "./post-register.schema";
 import type {
-  DeleteTestRequest,
-  DeleteTestResponseTransformed,
-} from "./delete-test.types";
+  PostRegisterRequest,
+  PostRegisterResponseTransformed,
+} from "./post-register.types";
 
-export const deleteTestURL = (id: DeleteTestRequest['id']) => 
-  path.join("/Test", `${id}`);
+export const postRegisterURL = () => 
+  path.join("/auth/register");
 
-export const deleteTest = async (
-  props?: DeleteTestRequest,
-): Promise<ApiResponse<DeleteTestResponseTransformed>> => {
+export const postRegister = async (
+  props?: PostRegisterRequest,
+): Promise<ApiResponse<PostRegisterResponseTransformed>> => {
   const payloadParsed = schema.request.parse(props);
 
-  const URL = deleteTestURL(payloadParsed.id);
+  const URL = postRegisterURL();
 
   const response = await requestHandler(
-    () => coreApi.delete(URL, payloadParsed),
+    () => coreApi.post(URL, payloadParsed),
     schema.response._def.schema,
     {
       isMock: false,

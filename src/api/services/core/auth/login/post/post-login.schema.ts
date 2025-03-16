@@ -3,7 +3,7 @@ import { coreApiMutationResponseSchema } from '@/api/instance/core-api';
 import t from '@/json/fa.json';
 
 // Request
-export const deleteTestRequestSchemaTransformed = z
+export const postLoginRequestSchemaTransformed = z
   .object({
     id: z.number().int(),
     title: z
@@ -14,10 +14,10 @@ export const deleteTestRequestSchemaTransformed = z
   .transform((data) => data);
 
 // Response
-export const deleteTestResponseSchemaTransofrmed = 
+export const postLoginResponseSchemaTransofrmed = 
   coreApiMutationResponseSchema().transform((data) => data);
 
-export const deleteTestSchema = {
-  request: deleteTestRequestSchemaTransformed,
-  response: deleteTestResponseSchemaTransofrmed,
+export const postLoginSchema = {
+  request: postLoginRequestSchemaTransformed,
+  response: postLoginResponseSchemaTransofrmed,
 };

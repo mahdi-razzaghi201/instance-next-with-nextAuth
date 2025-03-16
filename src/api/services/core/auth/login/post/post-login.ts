@@ -4,24 +4,24 @@ import t from '@/json/fa.json';
 import { coreApi } from "@/api/instance/core-api"; 
 import type { ApiResponse } from "@/api/types/api.types";
 import { requestHandler } from "@/api/utils/request-handler";
-import { patchTestSchema as schema } from "./patch-test.schema";
+import { postLoginSchema as schema } from "./post-login.schema";
 import type {
-  PatchTestRequest,
-  PatchTestResponseTransformed,
-} from "./patch-test.types";
+  PostLoginRequest,
+  PostLoginResponseTransformed,
+} from "./post-login.types";
 
-export const patchTestURL = (id: PatchTestRequest['id']) => 
-  path.join("/Test", `${id}`);
+export const postLoginURL = (id: PostLoginRequest['id']) => 
+  path.join("/AuthLogin", `${id}`);
 
-export const patchTest = async (
-  props?: PatchTestRequest,
-): Promise<ApiResponse<PatchTestResponseTransformed>> => {
+export const postLogin = async (
+  props?: PostLoginRequest,
+): Promise<ApiResponse<PostLoginResponseTransformed>> => {
   const payloadParsed = schema.request.parse(props);
 
-  const URL = patchTestURL(payloadParsed.id);
+  const URL = postLoginURL(payloadParsed.id);
 
   const response = await requestHandler(
-    () => coreApi.patch(URL, payloadParsed),
+    () => coreApi.post(URL, payloadParsed),
     schema.response._def.schema,
     {
       isMock: false,

@@ -4,8 +4,8 @@ import { toast } from 'sonner';
 import { z } from 'zod';
 import t from '@/json/fa.json';
 import { capitalize, trimRequestData } from '@/utils/strings';
-import { cookie, COOKIE_KEYS } from '@/utils/cookies';
-import { localStorage } from '@/utils/local-storage';
+// import { cookie, COOKIE_KEYS } from '@/utils/cookies';
+// import { localStorage } from '@/utils/local-storage';
 import { BASE_URLS } from '@/constants/base-urls';
 
 export const coreApiPaginatedRequestSchema = <
@@ -60,48 +60,48 @@ export const coreApi = axios.create({
   withCredentials: false,
 });
 
-coreApi.interceptors.request.use((config) => {
-  const token = cookie[COOKIE_KEYS.USER_INFO].get()?.token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  if (config.data) {
-    // Skip trimming for special types like FormData, Files, Blobs, etc.
-    if (
-      typeof config.data === 'string' ||
-      (typeof config.data === 'object' &&
-        !(config.data instanceof FormData) &&
-        !(config.data instanceof File) &&
-        !(config.data instanceof Blob))
-    ) {
-      config.data = trimRequestData(config.data);
-    }
-  }
-  return config;
-});
+// coreApi.interceptors.request.use((config) => {
+//   const token = cookie[COOKIE_KEYS.USER_INFO].get()?.token;
+//   if (token) {
+//     config.headers.Authorization = `Bearer ${token}`;
+//   }
+//   if (config.data) {
+//     // Skip trimming for special types like FormData, Files, Blobs, etc.
+//     if (
+//       typeof config.data === 'string' ||
+//       (typeof config.data === 'object' &&
+//         !(config.data instanceof FormData) &&
+//         !(config.data instanceof File) &&
+//         !(config.data instanceof Blob))
+//     ) {
+//       config.data = trimRequestData(config.data);
+//     }
+//   }
+//   return config;
+// });
 
-coreApi.interceptors.response.use(
-  function (response) {
-    return response;
-  },
-  function (error: AxiosError<{ errors?: string[]; detail?: string }>) {
-    if (error.status === 401) {
-      cookie[COOKIE_KEYS.USER_INFO].remove();
-      localStorage.clear();
-      window.location.href = `/login?next=${window.location.pathname}${window.location.search}`;
-    }
-    if (error.status === 401) {
-      toast.error(t.toast.error.authorization);
-    }
-    if (error.response?.data?.detail) {
-      toast.error(error.response?.data?.detail || t.toast.error.common);
-    } else {
-      Object.values(
-        error.response?.data?.errors || { '': [t.toast.error.common] },
-      ).map((item) => {
-        toast.error(item || t.toast.error.common);
-      });
-    }
-    return Promise.reject(error);
-  },
-);
+// coreApi.interceptors.response.use(
+//   function (response) {
+//     return response;
+//   },
+//   function (error: AxiosError<{ errors?: string[]; detail?: string }>) {
+//     if (error.status === 401) {
+//       cookie[COOKIE_KEYS.USER_INFO].remove();
+//       localStorage.clear();
+//       window.location.href = `/login?next=${window.location.pathname}${window.location.search}`;
+//     }
+//     if (error.status === 401) {
+//       toast.error(t.toast.error.authorization);
+//     }
+//     if (error.response?.data?.detail) {
+//       toast.error(error.response?.data?.detail || t.toast.error.common);
+//     } else {
+//       Object.values(
+//         error.response?.data?.errors || { '': [t.toast.error.common] },
+//       ).map((item) => {
+//         toast.error(item || t.toast.error.common);
+//       });
+//     }
+//     return Promise.reject(error);
+//   },
+// );
