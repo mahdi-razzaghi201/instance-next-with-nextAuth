@@ -11,7 +11,7 @@ import type {
 } from "./post-register.types";
 
 export const postRegisterURL = () => 
-  path.join("/auth/register");
+  path.join("/register");
 
 export const postRegister = async (
   props?: PostRegisterRequest,

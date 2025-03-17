@@ -11,6 +11,7 @@ function page() {
 
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [role, setRole] = React.useState("");
 
   return (
     <div>
@@ -20,8 +21,9 @@ function page() {
           console.log("test");
           
           mutation.mutate({
-            username: userName,
+            email: userName,
             password: password,
+            role: role,
           });
         }}
         className="flex flex-col gap-4 max-w-2xl mx-auto mt-12 "
@@ -32,6 +34,13 @@ function page() {
           placeholder="Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          type="text"
+          name="role"
+          placeholder="Role"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
         />
         <input
           type="password"

@@ -10,15 +10,15 @@ import type {
   PostLoginResponseTransformed,
 } from "./post-login.types";
 
-export const postLoginURL = (id: PostLoginRequest['id']) => 
-  path.join("/AuthLogin", `${id}`);
+export const postLoginURL = () => 
+  path.join("/login");
 
 export const postLogin = async (
   props?: PostLoginRequest,
 ): Promise<ApiResponse<PostLoginResponseTransformed>> => {
   const payloadParsed = schema.request.parse(props);
 
-  const URL = postLoginURL(payloadParsed.id);
+  const URL = postLoginURL();
 
   const response = await requestHandler(
     () => coreApi.post(URL, payloadParsed),
