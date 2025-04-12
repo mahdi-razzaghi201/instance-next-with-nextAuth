@@ -12,8 +12,6 @@ import type {
 
 export const postLoginURL = () => path.join("/login");
 
-type mood = "ssr" | "csr" | "ssg" | "isr";
-
 export const postLogin = async (
   props?: PostLoginRequest
 ): Promise<ApiResponse<PostLoginResponseTransformed>> => {

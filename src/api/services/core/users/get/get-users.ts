@@ -32,7 +32,7 @@ export const getUsers = async (
   try {
     response.data = schema.response.parse(response.data);
   } catch {
-    // toast.error(t.toast.error.parseResponse);
+    toast.error(t.toast.error.parseResponse);
 
   }
 

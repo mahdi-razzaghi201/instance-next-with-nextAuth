@@ -1,5 +1,5 @@
 import React from "react";
-import { Metadata } from 'next';
+
 export const revalidate = 10;
 export const dynamicParams = true;
 
@@ -18,6 +18,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
       "Content-Type": "application/json",
     },
   }).then((res) => res.json());
+
 
 
   return <div>

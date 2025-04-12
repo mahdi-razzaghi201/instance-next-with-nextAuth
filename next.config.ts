@@ -1,11 +1,10 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next/dist/server/config';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  typescript : {
+  typescript: {
     ignoreBuildErrors: true,
   },
-  eslint : {
+  eslint: {
     ignoreDuringBuilds: true,
   },
 };

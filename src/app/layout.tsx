@@ -1,6 +1,7 @@
 
 // import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "./fonts.css";
 import "./globals.css";
 import { ApiProvider } from "@/api/providers/api-provider";
 

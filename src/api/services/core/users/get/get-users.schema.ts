@@ -13,9 +13,7 @@ export const getUsersResponseSchemaTransofrmed =
   coreApiPaginatedResponseSchema(
     z
       .object({
-        id: z.number().int(),
-        title: z.string(),
-        isActive: z.boolean(),
+        username: z.string(),
       })
       .passthrough()
       .transform((data) => data),
