@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@anatine/zod-mock": "^3.14.0",
+    "@hookform/resolvers": "^5.0.1",
+    "@radix-ui/react-label": "^2.1.3",
     "@radix-ui/react-slot": "^1.2.0",
     "@tanstack/react-query": "^5.72.2",
     "axios": "^1.8.4",
@@ -19,11 +21,14 @@
     "clsx": "^2.1.1",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.487.0",
+    "my-next-app": "link:",
     "next": "15.2.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.55.0",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.2.0",
+    "tw-animate-css": "^1.2.5",
     "zod": "^3.24.2",
     "zustand": "^5.0.3"
   },
