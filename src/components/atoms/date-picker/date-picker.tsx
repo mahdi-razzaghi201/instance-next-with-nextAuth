@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import DatePickerLib from "react-multi-date-picker";
 import Toolbar from "react-multi-date-picker/plugins/toolbar";
@@ -7,7 +8,6 @@ import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
-import CustomHeader from "./CustomHeader"; // پلاگین سربرگ
 
 import "react-multi-date-picker/styles/layouts/mobile.css";
 
@@ -48,6 +48,7 @@ function DatePicker() {
       locale={persian_fa}
       weekDays={fullWeekDays}
       className={isMobile ? "rmdp-mobile" : "rmdp-prime"}
+      minDate={new DateObject()}
       plugins={[
         weekends(),
         <Toolbar
@@ -59,7 +60,7 @@ function DatePicker() {
             close: "بستن",
           }}
         />,
-        <CustomHeader key="custom-header" />
+     
       ]}
     />
   );
