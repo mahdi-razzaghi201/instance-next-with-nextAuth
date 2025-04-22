@@ -1,5 +1,4 @@
 "use client";
-import CustomDatePicker from "@/components/atoms/custom-date-picker/custom-date-picker";
 import DatePicker from "@/components/atoms/date-picker/date-picker";
 import { Input } from "@/components/atoms/input";
 import { PasswordInput } from "@/components/atoms/password-input";
@@ -14,6 +13,7 @@ export default function Home() {
       {/* <PasswordInput placeholder="تنظیمات" value={value} onChange={(e) => setValue(e.target.value)} /> */}
       <DatePicker />
       {/* <CustomDatePicker /> */}
+      {/* <DynamicPagination currentPage={3} totalPages={10}  /> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const PUBLIC_PATHS = ['/', '/auth/login', '/auth/register'];
+const PUBLIC_PATHS = ['/','/products', '/auth/login', '/auth/register'];
 
 const protectedRoutes: Record<string, string[]> = {
   '/admin': ['admin'],
