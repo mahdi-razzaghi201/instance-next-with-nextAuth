@@ -76,6 +76,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+
 /* استایل کلی برای تقویم */
 .rmdp-wrapper {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
@@ -165,7 +166,6 @@
   box-shadow: none !important;
 }
 
-
 /* نام روزهای هفته */
 .rmdp-week-day {
   color: black !important;
@@ -221,7 +221,7 @@
 .rmdp-disabled span:hover {
   color: #8798ad !important;
   background-color: transparent !important;
-cursor: not-allowed !important;
+  cursor: not-allowed !important;
 }
 
 @layer base {

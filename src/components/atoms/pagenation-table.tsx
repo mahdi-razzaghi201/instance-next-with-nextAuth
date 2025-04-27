@@ -39,7 +39,10 @@ export function PaginationTable({
       for (let i = 1; i <= totalPageCount; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationButton onClick={() => onPageChange(i)} isActive={page === i}>
+            <PaginationButton
+              onClick={() => onPageChange(i)}
+              isActive={page === i}
+            >
               {i}
             </PaginationButton>
           </PaginationItem>
@@ -85,7 +88,10 @@ export function PaginationTable({
     for (let i = start; i <= end; i++) {
       items.push(
         <PaginationItem key={i}>
-          <PaginationButton onClick={() => onPageChange(i)} isActive={page === i}>
+          <PaginationButton
+            onClick={() => onPageChange(i)}
+            isActive={page === i}
+          >
             {i}
           </PaginationButton>
         </PaginationItem>
@@ -104,7 +110,10 @@ export function PaginationTable({
     // Last page
     items.push(
       <PaginationItem key={totalPageCount}>
-        <PaginationButton onClick={() => onPageChange(totalPageCount)} isActive={page === totalPageCount}>
+        <PaginationButton
+          onClick={() => onPageChange(totalPageCount)}
+          isActive={page === totalPageCount}
+        >
           {totalPageCount}
         </PaginationButton>
       </PaginationItem>
@@ -116,7 +125,7 @@ export function PaginationTable({
   return (
     <div
       className={cn(
-        "flex w-full flex-col items-center gap-3 md:flex-row",
+        "flex w-full max-w-[320px] md:max-w-[450px] px-4 py-1 flex-col items-center justify-center gap-3 md:flex-row border rounded-4xl mx-auto",
         className
       )}
     >
@@ -127,7 +136,9 @@ export function PaginationTable({
               onClick={() => onPageChange(Math.max(page - 1, 1))}
               aria-disabled={page === 1}
               tabIndex={page === 1 ? -1 : undefined}
-              className={page === 1 ? "pointer-events-none opacity-50" : undefined}
+              className={
+                page === 1 ? "pointer-events-none opacity-50" : undefined
+              }
             />
           </PaginationItem>
           {renderPageNumbers()}
@@ -145,7 +156,6 @@ export function PaginationTable({
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-      <div className="min-w-[180px] flex-1" />
     </div>
   );
 }
