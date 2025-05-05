@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/atoms/dialog";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/atoms/drawer";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/atoms/dialog";
+import { Drawer, DrawerContent, DrawerTrigger, DrawerTitle } from "@/components/atoms/drawer";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface DrawerDialogProps {
@@ -30,13 +30,16 @@ export function DrawerDialog({
   const DialogComponent = isMobile ? Drawer : Dialog;
   const ContentComponent = isMobile ? DrawerContent : DialogContent;
   const TriggerComponent = isMobile ? DrawerTrigger : DialogTrigger;
+  const TitleComponent = isMobile ? DrawerTitle : DialogTitle;
 
   return (
     <DialogComponent open={derivedOpen} onOpenChange={handleOpenChange}>
       <TriggerComponent asChild>{trigger}</TriggerComponent>
-      
+
       <ContentComponent>
-        {title}
+        <TitleComponent>
+          {title}
+        </TitleComponent>
         {content}
       </ContentComponent>
     </DialogComponent>

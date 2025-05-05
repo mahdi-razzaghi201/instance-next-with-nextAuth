@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/atoms/button";
 import { Input } from "@/components/atoms/input";
-import { DrawerDialog } from "@/components/atoms/ResponsiveDialog";
+import { DrawerDialog } from "@/components/atoms/DrawerDialog";
 import { EditIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ export default function Home() {
         page={page}
         onPageChange={(page) => setPage(page)}
       /> */}
-      <DrawerDialog
+      {/* <DrawerDialog
         trigger={
           <Button variant="outline" className="gap-2">
             <EditIcon className="w-4 h-4" />
@@ -26,8 +26,8 @@ export default function Home() {
           </Button>
         }
         title={
-          <div className="text-xl font-bold border-b pb-2 mb-4">
-            تنظیمات حرفه‌ای
+          <div className="flex justify-end">
+            <p>تنظیمات حرفه‌ای</p>
           </div>
         }
         content={
@@ -39,7 +39,7 @@ export default function Home() {
             />
           </div>
         }
-      />
+      /> */}
     </div>
   );
 }
