@@ -4,15 +4,20 @@ import { Input } from "@/components/atoms/input";
 import { DrawerDialog } from "@/components/atoms/DrawerDialog";
 import { EditIcon } from "lucide-react";
 import { useState } from "react";
+import DatePicker from "@/components/atoms/date-picker/date-picker";
+import DateObject from "react-date-object";
 
 export default function Home() {
   const [value, setValue] = useState("");
   const [page, setPage] = useState(1);
+  const [selectedDate, setSelectedDate] = useState<DateObject | null>(null);
+  console.log(selectedDate ? selectedDate.format("") : "null");
+
   return (
     <div className="font-vazir flex justify-center ">
       {/* <Input placeholder="تنظیمات" value={value} onChange={(e) => setValue(e.target.value)} /> */}
       {/* <PasswordInput placeholder="تنظیمات" value={value} onChange={(e) => setValue(e.target.value)} /> */}
-      {/* <DatePicker /> */}
+      <DatePicker value={selectedDate} onChange={setSelectedDate} />{" "}
       {/* <PaginationTable
         totalCount={100}
         page={page}
